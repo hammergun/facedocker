@@ -75,7 +75,7 @@ RUN git clone https://github.com/facefusion/facefusion.git && \
 WORKDIR /facefusion
 RUN source /venv/bin/activate && \
     pip3 install -r requirements.txt && \
-    pip3 -y uninstall onnxruntime && \
+    pip3 uninstall -y onnxruntime && \
     pip3 install onnxruntime-gpu && \
     deactivate
 
