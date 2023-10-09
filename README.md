@@ -6,8 +6,8 @@
 * CUDA 11.8
 * Python 3.10.12
 * [FaceFusion](
-  https://github.com/facefusion/facefusion) 1.2.1
-* Torch 2.0.1
+  https://github.com/facefusion/facefusion) 1.3.0
+* Torch 2.1.0
 
 ## Available on RunPod
 
@@ -32,7 +32,7 @@ docker run -d \
   -p 3000:3001 \
   -p 8888:8888 \
   -e JUPYTER_PASSWORD=Jup1t3R! \
-  ashleykza/facefusion:1.2.1
+  ashleykza/facefusion:1.3.0
 ```
 
 You can obviously substitute the image name and tag with your own.
