@@ -55,10 +55,6 @@ RUN apt update && \
 # Set Python
 RUN ln -s /usr/bin/python3.10 /usr/bin/python
 
-# Install Torch and xformers
-RUN pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-    pip3 install --no-cache-dir xformers==0.0.22
-
 # Stage 2: Install FaceFusion and python modules
 FROM base as setup
 
@@ -74,7 +70,7 @@ RUN git clone https://github.com/facefusion/facefusion.git && \
 # Install the dependencies for FaceFusion
 WORKDIR /facefusion
 RUN source /venv/bin/activate && \
-    pip3 install -r requirements.txt && \
+    pip3 install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118 && \
     pip3 uninstall -y onnxruntime && \
     pip3 install onnxruntime-gpu && \
     deactivate
