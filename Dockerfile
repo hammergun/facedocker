@@ -65,7 +65,7 @@ RUN python3 -m venv /venv
 WORKDIR /
 RUN git clone https://github.com/hammergun/facefusion.git && \
     cd /facefusion && \
-    git checkout ${FACEFUSION_VERSION}
+   # git checkout ${FACEFUSION_VERSION}
 
 # Install the dependencies for FaceFusion
 WORKDIR /facefusion
