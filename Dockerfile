@@ -63,12 +63,12 @@ RUN python3 -m venv /venv
 
 # Clone the git repo of FaceFusion and set version
 WORKDIR /
-RUN git clone https://github.com/facefusion/facefusion.git && \
-    cd /facefusion && \
+RUN git clone https://github.com/hassan-sd/facefusion-unlocked.git && \
+    cd /facefusion-unlocked && \
     git checkout ${FACEFUSION_VERSION}
 
 # Install the dependencies for FaceFusion
-WORKDIR /facefusion
+WORKDIR /facefusion-unlocked
 RUN source /venv/bin/activate && \
     pip3 install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118 && \
     pip3 uninstall -y onnxruntime && \
