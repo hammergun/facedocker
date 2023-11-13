@@ -1,8 +1,6 @@
 # Stage 1: Base
 FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04 as base
 
-ARG FACEFUSION_VERSION=1.3.1
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
@@ -64,8 +62,7 @@ RUN python3 -m venv /venv
 # Clone the git repo of FaceFusion and set version
 WORKDIR /
 RUN git clone https://github.com/hammergun/facefusion.git && \
-    cd /facefusion && \
-   # git checkout ${FACEFUSION_VERSION}
+    cd /facefusion 
 
 # Install the dependencies for FaceFusion
 WORKDIR /facefusion
